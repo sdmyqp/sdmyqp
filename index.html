@@ -1,0 +1,1607 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>英语六级作文模板</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300&family=Noto+Serif+SC:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1410;
+    --ink-light: #4a3f35;
+    --ink-faint: #8a7a6e;
+    --paper: #faf7f2;
+    --paper-warm: #f3ede3;
+    --accent: #c0392b;
+    --accent-soft: #e8c4bf;
+    --gold: #b8860b;
+    --border: #d4c9bb;
+    --section1: #f0ebe0;
+    --section2: #e8f0eb;
+    --section3: #e8eaf0;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Source Serif 4', 'Noto Serif SC', serif;
+    font-weight: 300;
+    line-height: 1.8;
+    min-height: 100vh;
+  }
+
+  /* paper texture overlay */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .page-wrapper {
+    position: relative;
+    z-index: 1;
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 60px 40px 80px;
+  }
+
+  /* ── HEADER ── */
+  header {
+    text-align: center;
+    padding-bottom: 40px;
+    margin-bottom: 50px;
+    border-bottom: 2px solid var(--ink);
+    position: relative;
+  }
+
+  header::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: var(--accent);
+    margin: 12px auto 0;
+  }
+
+  .title-en {
+    font-family: 'Playfair Display', serif;
+    font-size: 13px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 12px;
+  }
+
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 5vw, 42px);
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.2;
+    margin-bottom: 8px;
+  }
+
+  .subtitle {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 14px;
+    color: var(--ink-faint);
+    letter-spacing: 0.1em;
+  }
+
+  /* ── TYPE TABS ── */
+  .type-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 48px;
+    justify-content: center;
+  }
+
+  .tab-btn {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 13px;
+    padding: 7px 18px;
+    border: 1.5px solid var(--border);
+    background: transparent;
+    color: var(--ink-light);
+    cursor: pointer;
+    border-radius: 2px;
+    transition: all 0.2s;
+    letter-spacing: 0.05em;
+  }
+
+  .tab-btn:hover, .tab-btn.active {
+    background: var(--ink);
+    border-color: var(--ink);
+    color: var(--paper);
+  }
+
+  /* ── CONTENT PANELS ── */
+  .type-panel { display: none; }
+  .type-panel.active { display: block; }
+
+  /* ── SECTION BLOCK ── */
+  .section-block {
+    margin-bottom: 36px;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.04);
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px 24px;
+    background: var(--ink);
+    color: var(--paper);
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .section-header:hover { background: #2d2318; }
+
+  .section-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    opacity: 0.5;
+    flex-shrink: 0;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    flex: 1;
+  }
+
+  .section-title-cn {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 13px;
+    opacity: 0.65;
+    font-weight: 400;
+  }
+
+  .toggle-icon {
+    font-size: 10px;
+    opacity: 0.5;
+    transition: transform 0.25s;
+    flex-shrink: 0;
+  }
+
+  .section-block.open .toggle-icon { transform: rotate(180deg); }
+
+  .section-body {
+    background: var(--paper-warm);
+    display: none;
+    padding: 0;
+  }
+
+  .section-block.open .section-body { display: block; }
+
+  /* ── SUB-SECTION (first para sub-blocks) ── */
+  .subsection {
+    border-bottom: 1px solid var(--border);
+  }
+
+  .subsection:last-child { border-bottom: none; }
+
+  .subsection-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 13px 24px;
+    background: rgba(0,0,0,0.025);
+    cursor: pointer;
+    user-select: none;
+    border-left: 3px solid transparent;
+    transition: border-color 0.2s, background 0.2s;
+  }
+
+  .subsection-header:hover {
+    border-left-color: var(--accent);
+    background: rgba(0,0,0,0.05);
+  }
+
+  .subsection.open .subsection-header {
+    border-left-color: var(--accent);
+  }
+
+  .subsection-label {
+    font-family: 'Playfair Display', serif;
+    font-size: 13px;
+    color: var(--accent);
+    font-weight: 600;
+    flex-shrink: 0;
+    min-width: 24px;
+  }
+
+  .subsection-name {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 14px;
+    color: var(--ink);
+    font-weight: 600;
+    flex: 1;
+  }
+
+  .sub-toggle { font-size: 9px; color: var(--ink-faint); transition: transform 0.2s; }
+  .subsection.open .sub-toggle { transform: rotate(180deg); }
+
+  .subsection-body { display: none; padding: 0 24px 20px 61px; }
+  .subsection.open .subsection-body { display: block; }
+
+  /* ── SENTENCE CARDS ── */
+  .sentence-card {
+    margin-bottom: 18px;
+    border-left: 2px solid var(--accent-soft);
+    padding: 14px 16px;
+    background: white;
+    border-radius: 0 3px 3px 0;
+    position: relative;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+
+  .sentence-card:hover {
+    border-left-color: var(--accent);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  }
+
+  .sentence-card:last-child { margin-bottom: 0; }
+
+  .en-text {
+    font-family: 'Source Serif 4', serif;
+    font-size: 15px;
+    color: var(--ink);
+    line-height: 1.7;
+    margin-bottom: 8px;
+  }
+
+  .en-text .blank {
+    display: inline-block;
+    border-bottom: 1.5px solid var(--gold);
+    color: var(--gold);
+    font-style: italic;
+    padding: 0 3px;
+    min-width: 80px;
+  }
+
+  .cn-text {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 12px;
+    color: var(--ink-faint);
+    line-height: 1.6;
+    font-weight: 300;
+    letter-spacing: 0.02em;
+    border-top: 1px dashed var(--border);
+    padding-top: 7px;
+    margin-top: 3px;
+  }
+
+  /* direct sentences in section body (para 2 & 3) */
+  .sentences-block {
+    padding: 20px 24px 24px;
+  }
+
+  /* ── VOCAB TABLE ── */
+  .vocab-section {
+    padding: 20px 24px;
+    border-top: 1px solid var(--border);
+  }
+
+  .vocab-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 13px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+
+  .vocab-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 12px;
+  }
+
+  .vocab-group {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 12px 14px;
+  }
+
+  .vocab-group-title {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 8px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--accent-soft);
+  }
+
+  .vocab-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 8px;
+  }
+
+  .vocab-item {
+    font-family: 'Source Serif 4', serif;
+    font-size: 12px;
+    color: var(--ink-light);
+    font-style: italic;
+  }
+
+  .vocab-item::after { content: '/'; margin-left: 8px; color: var(--border); }
+  .vocab-item:last-child::after { content: ''; }
+
+  /* ── ENDING VAULT ── */
+  .ending-vault {
+    margin-top: 0;
+    padding: 20px 24px;
+  }
+
+  .ending-category {
+    margin-bottom: 18px;
+  }
+
+  .ending-cat-title {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .ending-cat-title::before {
+    content: '';
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+
+  .ending-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .chip {
+    font-family: 'Source Serif 4', serif;
+    font-size: 12.5px;
+    padding: 5px 12px;
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    color: var(--ink-light);
+    background: white;
+    font-style: italic;
+    transition: background 0.15s;
+  }
+
+  .chip:hover {
+    background: var(--accent-soft);
+    border-color: var(--accent);
+    color: var(--ink);
+  }
+
+  /* ── DIVIDER ── */
+  .ornament {
+    text-align: center;
+    color: var(--border);
+    font-size: 18px;
+    letter-spacing: 0.5em;
+    margin: 30px 0;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 600px) {
+    .page-wrapper { padding: 30px 20px 60px; }
+    .subsection-body { padding-left: 24px; }
+    .vocab-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  /* ── COPY BUTTON ── */
+  .copy-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 10px;
+    padding: 3px 8px;
+    background: var(--paper-warm);
+    border: 1px solid var(--border);
+    color: var(--ink-faint);
+    cursor: pointer;
+    border-radius: 2px;
+    opacity: 0;
+    transition: opacity 0.2s;
+    font-family: 'Noto Serif SC', serif;
+    letter-spacing: 0.05em;
+  }
+
+  .sentence-card:hover .copy-btn { opacity: 1; }
+  .copy-btn.copied { color: var(--accent); border-color: var(--accent); }
+
+  /* ── TTS BUTTON ── */
+  .tts-btn {
+    position: absolute;
+    top: 10px;
+    right: 56px;
+    font-size: 13px;
+    width: 26px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--paper-warm);
+    border: 1px solid var(--border);
+    color: var(--ink-faint);
+    cursor: pointer;
+    border-radius: 2px;
+    opacity: 0;
+    transition: opacity 0.2s, color 0.15s, border-color 0.15s;
+    line-height: 1;
+    padding: 0;
+  }
+
+  .sentence-card:hover .tts-btn { opacity: 1; }
+  .tts-btn:hover { color: var(--gold); border-color: var(--gold); }
+  .tts-btn.speaking {
+    color: var(--accent);
+    border-color: var(--accent);
+    opacity: 1;
+    animation: pulse-tts 0.8s ease-in-out infinite alternate;
+  }
+
+  @keyframes pulse-tts {
+    from { opacity: 0.6; transform: scale(1); }
+    to   { opacity: 1;   transform: scale(1.15); }
+  }
+
+  /* phrase-row tts */
+  .phrase-tts-btn {
+    font-size: 13px;
+    width: 24px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--ink-faint);
+    cursor: pointer;
+    border-radius: 2px;
+    opacity: 0;
+    transition: opacity 0.15s, color 0.15s;
+    flex-shrink: 0;
+    padding: 0;
+  }
+
+  .phrase-row:hover .phrase-tts-btn { opacity: 1; }
+  .phrase-tts-btn:hover { color: var(--gold); border-color: var(--gold); }
+  .phrase-tts-btn.speaking {
+    color: var(--accent);
+    border-color: var(--accent);
+    opacity: 1;
+    animation: pulse-tts 0.8s ease-in-out infinite alternate;
+  }
+  /* ── MATERIAL TAB SPECIAL ── */
+  .tab-btn--material {
+    background: var(--gold);
+    border-color: var(--gold);
+    color: white;
+    font-weight: 600;
+  }
+  .tab-btn--material:hover, .tab-btn--material.active {
+    background: #8B6508;
+    border-color: #8B6508;
+    color: white;
+  }
+
+  /* ── SEARCH BOX ── */
+  .search-wrap {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: var(--paper);
+    padding: 18px 0 14px;
+    margin-bottom: 4px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .search-input-wrap {
+    position: relative;
+  }
+
+  .search-input {
+    width: 100%;
+    padding: 11px 44px 11px 16px;
+    border: 1.5px solid var(--border);
+    border-radius: 3px;
+    background: white;
+    font-family: 'Noto Serif SC', serif;
+    font-size: 14px;
+    color: var(--ink);
+    outline: none;
+    transition: border-color 0.2s;
+  }
+
+  .search-input:focus { border-color: var(--gold); }
+  .search-input::placeholder { color: var(--ink-faint); font-style: italic; }
+
+  .search-icon {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--ink-faint);
+    font-size: 16px;
+    pointer-events: none;
+  }
+
+  .search-count {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 12px;
+    color: var(--ink-faint);
+    margin-top: 6px;
+    min-height: 16px;
+  }
+
+  .search-count span { color: var(--accent); font-weight: 600; }
+
+  /* ── MATERIAL CATEGORIES ── */
+  .mat-category {
+    margin-bottom: 28px;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  }
+
+  .mat-cat-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 22px;
+    background: var(--ink);
+    color: var(--paper);
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .mat-cat-header:hover { background: #2d2318; }
+
+  .mat-cat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--gold);
+    flex-shrink: 0;
+    min-width: 28px;
+  }
+
+  .mat-cat-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    font-weight: 600;
+    flex: 1;
+  }
+
+  .mat-cat-subtitle {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 12px;
+    opacity: 0.5;
+    font-weight: 400;
+  }
+
+  .mat-toggle { font-size: 10px; opacity: 0.5; transition: transform 0.25s; }
+  .mat-category.open .mat-toggle { transform: rotate(180deg); }
+
+  .mat-body {
+    display: none;
+    background: var(--paper-warm);
+    padding: 16px 22px 20px;
+  }
+  .mat-category.open .mat-body { display: block; }
+
+  /* ── PHRASE ROW ── */
+  .phrase-row {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    padding: 9px 12px;
+    border-bottom: 1px solid var(--border);
+    border-left: 2px solid transparent;
+    background: white;
+    margin-bottom: 4px;
+    border-radius: 0 3px 3px 0;
+    transition: border-left-color 0.15s, box-shadow 0.15s;
+    cursor: default;
+  }
+
+  .phrase-row:last-child { border-bottom: none; margin-bottom: 0; }
+  .phrase-row:hover { border-left-color: var(--gold); box-shadow: 0 1px 6px rgba(0,0,0,0.07); }
+  .phrase-row.hidden { display: none; }
+  .phrase-row.highlight { border-left-color: var(--accent); background: #fff9f8; }
+
+  .phrase-cn {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 13px;
+    color: var(--ink);
+    flex-shrink: 0;
+    min-width: 160px;
+  }
+
+  .phrase-sep {
+    color: var(--border);
+    font-size: 11px;
+    flex-shrink: 0;
+  }
+
+  .phrase-en {
+    font-family: 'Source Serif 4', serif;
+    font-size: 13.5px;
+    color: var(--ink-light);
+    font-style: italic;
+    flex: 1;
+  }
+
+  mark {
+    background: #fde68a;
+    color: var(--ink);
+    border-radius: 2px;
+    padding: 0 1px;
+    font-style: normal;
+  }
+
+  .phrase-copy-btn {
+    font-size: 10px;
+    padding: 2px 7px;
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--ink-faint);
+    cursor: pointer;
+    border-radius: 2px;
+    opacity: 0;
+    transition: opacity 0.15s;
+    flex-shrink: 0;
+    font-family: 'Noto Serif SC', serif;
+    white-space: nowrap;
+  }
+
+  .phrase-row:hover .phrase-copy-btn { opacity: 1; }
+  .phrase-copy-btn.copied { color: var(--accent); border-color: var(--accent); opacity: 1; }
+
+  .no-results {
+    text-align: center;
+    padding: 40px 20px;
+    font-family: 'Noto Serif SC', serif;
+    font-size: 14px;
+    color: var(--ink-faint);
+    display: none;
+  }
+</style>
+</head>
+<body>
+<div class="page-wrapper">
+
+  <header>
+    <div class="title-en">CET-6 Writing Templates</div>
+    <h1>英语六级作文模板</h1>
+    <div class="subtitle">五种题型 · 三段结构 · 全文翻译 · 八大主题素材库</div>
+  </header>
+
+  <div class="type-tabs">
+    <button class="tab-btn active" onclick="switchType(0, this)">① 现象解释类</button>
+    <button class="tab-btn" onclick="switchType(1, this)">② 问题解决型</button>
+    <button class="tab-btn" onclick="switchType(2, this)">③ 观点选择类</button>
+    <button class="tab-btn" onclick="switchType(3, this)">④ 图表/图画类</button>
+    <button class="tab-btn" onclick="switchType(4, this)">⑤ 名言警句类</button>
+    <button class="tab-btn tab-btn--material" onclick="switchType(5, this)">📚 素材库</button>
+  </div>
+
+  <!-- ══════════ TYPE 1 ══════════ -->
+  <div class="type-panel active" id="type-0">
+
+    <!-- PARA 1 -->
+    <div class="section-block open" id="s1-0">
+      <div class="section-header" onclick="toggleSection('s1-0')">
+        <span class="section-num">Para.</span>
+        <div>
+          <div class="section-title">第一段 <span class="section-title-cn">· 引入话题</span></div>
+        </div>
+        <span class="toggle-icon">▼</span>
+      </div>
+      <div class="section-body">
+        <!-- Sub 1 -->
+        <div class="subsection open">
+          <div class="subsection-header" onclick="toggleSub(this)">
+            <span class="subsection-label">A</span>
+            <span class="subsection-name">重要性陈述</span>
+            <span class="sub-toggle">▼</span>
+          </div>
+          <div class="subsection-body">
+            <div class="sentence-card">
+              <button class="copy-btn" onclick="copyCard(this)">复制</button>
+              <button class="tts-btn" onclick="speakText(this, this.closest('.sentence-card').querySelector('.en-text').innerText)" title="朗读英文">🔊</button>
+              <div class="en-text">In modern society, the importance of <span class="blank">（主题词）</span> is becoming more and more evident.</div>
+              <div class="cn-text">在现代社会，（主题词）的重要性日益凸显。</div>
+            </div>
+          </div>
+        </div>
+        <!-- Sub 2 -->
+        <div class="subsection">
+          <div class="subsection-header" onclick="toggleSub(this)">
+            <span class="subsection-label">B</span>
+            <span class="subsection-name">号召行动</span>
+            <span class="sub-toggle">▼</span>
+          </div>
+          <div class="subsection-body">
+            <div class="sentence-card">
+              <button class="copy-btn" onclick="copyCard(this)">复制</button>
+              <button class="tts-btn" onclick="speakText(this, this.closest('.sentence-card').querySelector('.en-text').innerText)" title="朗读英文">🔊</button>
+              <div class="en-text">Therefore, it is imperative for <span class="blank">（students / citizens / residents / the younger generation）</span> to...</div>
+              <div class="cn-text">因此，（学生 / 公民 / 居民 / 年轻一代）有必要……</div>
+            </div>
+          </div>
+        </div>
+        <!-- Sub 3 -->
+        <div class="subsection">
+          <div class="subsection-header" onclick="toggleSub(this)">
+            <span class="subsection-label">C</span>
+            <span class="subsection-name">提出论点</span>
+            <span class="sub-toggle">▼</span>
+          </div>
+          <div class="subsection-body">
+            <div class="sentence-card">
+              <button class="copy-btn" onclick="copyCard(this)">复制</button>
+              <button class="tts-btn" onclick="speakText(this, this.closest('.sentence-card').querySelector('.en-text').innerText)" title="朗读英文">🔊</button>
+              <div class="en-text">The following arguments and examples will illustrate my point.</div>
+              <div class="cn-text">以下论据和例证将阐明我的观点。</div>
+            </div>
+          </div>
+        </div>
+        <!-- VOCAB -->
+        <div class="vocab-section">
+          <div class="vocab-title">可替换词汇库</div>
+          <div class="vocab-grid">
+            <div class="vocab-group">
+              <div class="vocab-group-title">重要</div>
+              <div class="vocab-list">
+                <span class="vocab-item">important</span><span class="vocab-item">significant</span><span class="vocab-item">crucial</span><span class="vocab-item">vital</span><span class="vocab-item">essential</span><span class="vocab-item">indispensable</span>
+              </div>
+            </div>
+            <div class="vocab-group">
+              <div class="vocab-group-title">必要</div>
+              <div class="vocab-list">
+                <span class="vocab-item">necessary</span><span class="vocab-item">essential</span><span class="vocab-item">imperative</span><span class="vocab-item">indispensable</span><span class="vocab-item">advisable</span>
+              </div>
+            </div>
+            <div class="vocab-group">
+              <div class="vocab-group-title">年轻人</div>
+              <div class="vocab-list">
+                <span class="vocab-item">youngsters</span><span class="vocab-item">young people</span><span class="vocab-item">the younger generation</span><span class="vocab-item">adolescents</span><span class="vocab-item">young adults</span>
+              </div>
+            </div>
+            <div class="vocab-group">
+              <div class="vocab-group-title">理由</div>
+              <div class="vocab-list">
+                <span class="vocab-item">reasons</span><span class="vocab-item">arguments</span><span class="vocab-item">factors</span><span class="vocab-item">grounds</span><span class="vocab-item">considerations</span>
+              </div>
+            </div>
+            <div class="vocab-group">
+              <div class="vocab-group-title">证明</div>
+              <div class="vocab-list">
+                <span class="vocab-item">evidence</span><span class="vocab-item">examples</span><span class="vocab-item">illustrations</span><span class="vocab-item">supporting facts</span><span class="vocab-item">convincing proof</span>
+              </div>
+            </div>
+            <div class="vocab-group">
+              <div class="vocab-group-title">观点</div>
+              <div class="vocab-list">
+                <span class="vocab-item">viewpoint</span><span class="vocab-item">opinion</span><span class="vocab-item">perspective</span><span class="vocab-item">stance</span><span class="vocab-item">position</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PARA 2 (shared) -->
+    <div class="section-block open" id="s2-0">
+      <div class="section-header" onclick="toggleSection('s2-0')">
+        <span class="section-num">Para.</span>
+        <div>
+          <div class="section-title">第二段 <span class="section-title-cn">· 展开论述</span></div>
+        </div>
+        <span class="toggle-icon">▼</span>
+      </div>
+      <div class="section-body">
+        <div class="sentences-block" id="para2-shared"></div>
+      </div>
+    </div>
+
+    <!-- PARA 3 (shared) -->
+    <div class="section-block open" id="s3-0">
+      <div class="section-header" onclick="toggleSection('s3-0')">
+        <span class="section-num">Para.</span>
+        <div>
+          <div class="section-title">第三段 <span class="section-title-cn">· 总结升华</span></div>
+        </div>
+        <span class="toggle-icon">▼</span>
+      </div>
+      <div class="section-body">
+        <div class="sentences-block" id="para3-shared"></div>
+        <div class="ending-vault" id="ending-shared"></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ══════════ TYPE 2 ══════════ -->
+  <div class="type-panel" id="type-1">
+    <div class="section-block open" id="s1-1">
+      <div class="section-header" onclick="toggleSection('s1-1')">
+        <span class="section-num">Para.</span>
+        <div><div class="section-title">第一段 <span class="section-title-cn">· 引入背景</span></div></div>
+        <span class="toggle-icon">▼</span>
+      </div>
+      <div class="section-body">
+        <div class="subsection open">
+          <div class="subsection-header" onclick="toggleSub(this)">
+            <span class="subsection-label">A</span>
+            <span class="subsection-name">背景导入</span>
+            <span class="sub-toggle">▼</span>
+          </div>
+          <div class="subsection-body">
+            <div class="sentence-card">
+              <button class="copy-btn" onclick="copyCard(this)">复制</button>
+              <button class="tts-btn" onclick="speakText(this, this.closest('.sentence-card').querySelector('.en-text').innerText)" title="朗读英文">🔊</button>
+              <div class="en-text">Against the backdrop of rapid social and economic development,</div>
+              <div class="cn-text">在社会与经济快速发展的背景下，</div>
+            </div>
+          </div>
+        </div>
+        <div class="subsection">
+          <div class="subsection-header" onclick="toggleSub(this)">
+            <span class="subsection-label">B</span>
+            <span class="subsection-name">必要性陈述</span>
+            <span class="sub-toggle">▼</span>
+          </div>
+          <div class="subsection-body">
+            <div class="sentence-card">
+              <button class="copy-btn" onclick="copyCard(this)">复制</button>
+              <button class="tts-btn" onclick="speakText(this, this.closest('.sentence-card').querySelector('.en-text').innerText)" title="朗读英文">🔊</button>
+              <div class="en-text">it is crucial for <span class="blank">（students / residents / citizens / youngsters）</span> to...</div>
+              <div class="cn-text">（学生 / 居民 / 公民 / 年轻人）有必要……</div>
+            </div>
+          </div>
+        </div>
+        <div class="subsection">
+          <div class="subsection-header" onclick="toggleSub(this)">
+            <span class="subsection-label">C</span>
+            <span class="subsection-name">解决方案预告</span>
+            <span class="sub-toggle">▼</span>
+          </div>
+          <div class="subsection-body">
+            <div class="sentence-card">
+              <button class="copy-btn" onclick="copyCard(this)">复制</button>
+              <button class="tts-btn" onclick="speakText(this, this.closest('.sentence-card').querySelector('.en-text').innerText)" title="朗读英文">🔊</button>
+              <div class="en-text">Several effective strategies can be implemented to overcome this challenge.</div>
+              <div class="cn-text">可以实施若干有效策略来应对这一挑战。</div>
+            </div>
+          </div>
+        </div>
+        <div class="vocab-section">
+          <div class="vocab-title">词汇替换库</div>
+          <div class="vocab-grid">
+            <div class="vocab-group">
+              <div class="vocab-group-title">发展</div>
+              <div class="vocab-list">
+                <span class="vocab-item">advancement</span><span class="vocab-item">development</span><span class="vocab-item">progress</span><span class="vocab-item">growth</span><span class="vocab-item">evolution</span><span class="vocab-item">transformation</span>
+              </div>
+            </div>
+            <div class="vocab-group">
+              <div class="vocab-group-title">必要</div>
+              <div class="vocab-list">
+                <span class="vocab-item">necessary</span><span class="vocab-item">essential</span><span class="vocab-item">crucial</span><span class="vocab-item">vital</span><span class="vocab-item">imperative</span><span class="vocab-item">of paramount importance</span>
+              </div>
+            </div>
+            <div class="vocab-group">
+              <div class="vocab-group-title">策略</div>
+              <div class="vocab-list">
+                <span class="vocab-item">strategies</span><span class="vocab-item">measures</span><span class="vocab-item">approaches</span><span class="vocab-item">methods</span><span class="vocab-item">solutions</span><span class="vocab-item">recommendations</span><span class="vocab-item">initiatives</span>
+              </div>
+            </div>
+            <div class="vocab-group">
+              <div class="vocab-group-title">解决</div>
+              <div class="vocab-list">
+                <span class="vocab-item">address</span><span class="vocab-item">tackle</span><span class="vocab-item">solve</span><span class="vocab-item">overcome</span><span class="vocab-item">cope with</span><span class="vocab-item">deal with</span><span class="vocab-item">respond to</span>
+              </div>
+            </div>
+            <div class="vocab-group">
+              <div class="vocab-group-title">挑战</div>
+              <div class="vocab-list">
+                <span class="vocab-item">challenge</span><span class="vocab-item">issue</span><span class="vocab-item">problem</span><span class="vocab-item">concern</span><span class="vocab-item">difficulty</span><span class="vocab-item">obstacle</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="section-block open" id="s2-1">
+      <div class="section-header" onclick="toggleSection('s2-1')">
+        <span class="section-num">Para.</span>
+        <div><div class="section-title">第二段 <span class="section-title-cn">· 展开论述</span></div></div>
+        <span class="toggle-icon">▼</span>
+      </div>
+      <div class="section-body"><div class="sentences-block" id="para2-t1"></div></div>
+    </div>
+    <div class="section-block open" id="s3-1">
+      <div class="section-header" onclick="toggleSection('s3-1')">
+        <span class="section-num">Para.</span>
+        <div><div class="section-title">第三段 <span class="section-title-cn">· 总结升华</span></div></div>
+        <span class="toggle-icon">▼</span>
+      </div>
+      <div class="section-body">
+        <div class="sentences-block" id="para3-t1"></div>
+        <div class="ending-vault" id="ending-t1"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════ TYPE 3 ══════════ -->
+  <div class="type-panel" id="type-2">
+    <div class="section-block open" id="s1-2">
+      <div class="section-header" onclick="toggleSection('s1-2')">
+        <span class="section-num">Para.</span>
+        <div><div class="section-title">第一段 <span class="section-title-cn">· 引出争议</span></div></div>
+        <span class="toggle-icon">▼</span>
+      </div>
+      <div class="section-body">
+        <div class="subsection open">
+          <div class="subsection-header" onclick="toggleSub(this)">
+            <span class="subsection-label">A</span>
+            <span class="subsection-name">话题导入</span>
+            <span class="sub-toggle">▼</span>
+          </div>
+          <div class="subsection-body">
+            <div class="sentence-card">
+              <button class="copy-btn" onclick="copyCard(this)">复制</button>
+              <button class="tts-btn" onclick="speakText(this, this.closest('.sentence-card').querySelector('.en-text').innerText)" title="朗读英文">🔊</button>
+              <div class="en-text">In modern society, the importance of <span class="blank">（主题词）</span> has become more evident than ever before.</div>
+              <div class="cn-text">在现代社会，（主题词）的重要性比以往任何时候都更加凸显。</div>
+            </div>
+          </div>
+        </div>
+        <div class="subsection">
+          <div class="subsection-header" onclick="toggleSub(this)">
+            <span class="subsection-label">B</span>
+            <span class="subsection-name">呈现分歧</span>
+            <span class="sub-toggle">▼</span>
+          </div>
+          <div class="subsection-body">
+            <div class="sentence-card">
+              <button class="copy-btn" onclick="copyCard(this)">复制</button>
+              <button class="tts-btn" onclick="speakText(this, this.closest('.sentence-card').querySelector('.en-text').innerText)" title="朗读英文">🔊</button>
+              <div class="en-text">When confronted with the choice between A and B, people tend to hold different views.</div>
+              <div class="cn-text">面对A与B之间的选择，人们往往持有不同看法。</div>
+            </div>
+          </div>
+        </div>
+        <div class="subsection">
+          <div class="subsection-header" onclick="toggleSub(this)">
+            <span class="subsection-label">C</span>
+            <span class="subsection-name">对立观点</span>
+            <span class="sub-toggle">▼</span>
+          </div>
+          <div class="subsection-body">
+            <div class="sentence-card">
+              <button class="copy-btn" onclick="copyCard(this)">复制</button>
+              <button class="tts-btn" onclick="speakText(this, this.closest('.sentence-card').querySelector('.en-text').innerText)" title="朗读英文">🔊</button>
+              <div class="en-text">While some individuals advocate A, others maintain that B is a more desirable alternative.</div>
+              <div class="cn-text">一些人支持A，而另一些人则认为B是更为理想的选择。</div>
+            </div>
+          </div>
+        </div>
+        <div class="subsection">
+          <div class="subsection-header" onclick="toggleSub(this)">
+            <span class="subsection-label">D</span>
+            <span class="subsection-name">表明立场</span>
+            <span class="sub-toggle">▼</span>
+          </div>
+          <div class="subsection-body">
+            <div class="sentence-card">
+              <button class="copy-btn" onclick="copyCard(this)">复制</button>
+              <button class="tts-btn" onclick="speakText(this, this.closest('.sentence-card').querySelector('.en-text').innerText)" title="朗读英文">🔊</button>
+              <div class="en-text">Personally, I strongly support <span class="blank">A / B</span> for the following reasons.</div>
+              <div class="cn-text">就我个人而言，我强烈支持A（或B），理由如下。</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="section-block open" id="s2-2">
+      <div class="section-header" onclick="toggleSection('s2-2')">
+        <span class="section-num">Para.</span>
+        <div><div class="section-title">第二段 <span class="section-title-cn">· 展开论述</span></div></div>
+        <span class="toggle-icon">▼</span>
+      </div>
+      <div class="section-body"><div class="sentences-block" id="para2-t2"></div></div>
+    </div>
+    <div class="section-block open" id="s3-2">
+      <div class="section-header" onclick="toggleSection('s3-2')">
+        <span class="section-num">Para.</span>
+        <div><div class="section-title">第三段 <span class="section-title-cn">· 总结升华</span></div></div>
+        <span class="toggle-icon">▼</span>
+      </div>
+      <div class="section-body">
+        <div class="sentences-block" id="para3-t2"></div>
+        <div class="ending-vault" id="ending-t2"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════ TYPE 4 ══════════ -->
+  <div class="type-panel" id="type-3">
+    <div class="section-block open" id="s1-3">
+      <div class="section-header" onclick="toggleSection('s1-3')">
+        <span class="section-num">Para.</span>
+        <div><div class="section-title">第一段 <span class="section-title-cn">· 描述图表</span></div></div>
+        <span class="toggle-icon">▼</span>
+      </div>
+      <div class="section-body">
+        <div class="subsection open">
+          <div class="subsection-header" onclick="toggleSub(this)">
+            <span class="subsection-label">A</span>
+            <span class="subsection-name">描述数据</span>
+            <span class="sub-toggle">▼</span>
+          </div>
+          <div class="subsection-body">
+            <div class="sentence-card">
+              <button class="copy-btn" onclick="copyCard(this)">复制</button>
+              <button class="tts-btn" onclick="speakText(this, this.closest('.sentence-card').querySelector('.en-text').innerText)" title="朗读英文">🔊</button>
+              <div class="en-text">As can be seen from the chart, <span class="blank">（描述图表）</span>.</div>
+              <div class="cn-text">从图表中可以看出，（描述图表内容）。</div>
+            </div>
+          </div>
+        </div>
+        <div class="subsection">
+          <div class="subsection-header" onclick="toggleSub(this)">
+            <span class="subsection-label">B</span>
+            <span class="subsection-name">揭示内涵</span>
+            <span class="sub-toggle">▼</span>
+          </div>
+          <div class="subsection-body">
+            <div class="sentence-card">
+              <button class="copy-btn" onclick="copyCard(this)">复制</button>
+              <button class="tts-btn" onclick="speakText(this, this.closest('.sentence-card').querySelector('.en-text').innerText)" title="朗读英文">🔊</button>
+              <div class="en-text">It is evident that <span class="blank">（图片内涵）</span>.</div>
+              <div class="cn-text">显而易见，（图片所揭示的含义）。</div>
+            </div>
+          </div>
+        </div>
+        <div class="subsection">
+          <div class="subsection-header" onclick="toggleSub(this)">
+            <span class="subsection-label">C</span>
+            <span class="subsection-name">引出分析</span>
+            <span class="sub-toggle">▼</span>
+          </div>
+          <div class="subsection-body">
+            <div class="sentence-card">
+              <button class="copy-btn" onclick="copyCard(this)">复制</button>
+              <button class="tts-btn" onclick="speakText(this, this.closest('.sentence-card').querySelector('.en-text').innerText)" title="朗读英文">🔊</button>
+              <div class="en-text">The reasons behind this phenomenon can be analyzed as follows.</div>
+              <div class="cn-text">这一现象背后的原因可以从以下几个方面进行分析。</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="section-block open" id="s2-3">
+      <div class="section-header" onclick="toggleSection('s2-3')">
+        <span class="section-num">Para.</span>
+        <div><div class="section-title">第二段 <span class="section-title-cn">· 展开论述</span></div></div>
+        <span class="toggle-icon">▼</span>
+      </div>
+      <div class="section-body"><div class="sentences-block" id="para2-t3"></div></div>
+    </div>
+    <div class="section-block open" id="s3-3">
+      <div class="section-header" onclick="toggleSection('s3-3')">
+        <span class="section-num">Para.</span>
+        <div><div class="section-title">第三段 <span class="section-title-cn">· 总结升华</span></div></div>
+        <span class="toggle-icon">▼</span>
+      </div>
+      <div class="section-body">
+        <div class="sentences-block" id="para3-t3"></div>
+        <div class="ending-vault" id="ending-t3"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════ TYPE 5 ══════════ -->
+  <div class="type-panel" id="type-4">
+    <div class="section-block open" id="s1-4">
+      <div class="section-header" onclick="toggleSection('s1-4')">
+        <span class="section-num">Para.</span>
+        <div><div class="section-title">第一段 <span class="section-title-cn">· 引用名言</span></div></div>
+        <span class="toggle-icon">▼</span>
+      </div>
+      <div class="section-body">
+        <div class="subsection open">
+          <div class="subsection-header" onclick="toggleSub(this)">
+            <span class="subsection-label">A</span>
+            <span class="subsection-name">引入名言</span>
+            <span class="sub-toggle">▼</span>
+          </div>
+          <div class="subsection-body">
+            <div class="sentence-card">
+              <button class="copy-btn" onclick="copyCard(this)">复制</button>
+              <button class="tts-btn" onclick="speakText(this, this.closest('.sentence-card').querySelector('.en-text').innerText)" title="朗读英文">🔊</button>
+              <div class="en-text">There is a famous saying that goes, "<span class="blank">（谚语）</span>".</div>
+              <div class="cn-text">有一句名言是这样说的："（谚语内容）"。</div>
+            </div>
+          </div>
+        </div>
+        <div class="subsection">
+          <div class="subsection-header" onclick="toggleSub(this)">
+            <span class="subsection-label">B</span>
+            <span class="subsection-name">解读含义</span>
+            <span class="sub-toggle">▼</span>
+          </div>
+          <div class="subsection-body">
+            <div class="sentence-card">
+              <button class="copy-btn" onclick="copyCard(this)">复制</button>
+              <button class="tts-btn" onclick="speakText(this, this.closest('.sentence-card').querySelector('.en-text').innerText)" title="朗读英文">🔊</button>
+              <div class="en-text">This is particularly meaningful to college students, as it reminds us that <span class="blank">（解释谚语含义）</span>.</div>
+              <div class="cn-text">这句话对大学生尤为深刻，它提醒我们（对谚语含义的解释）。</div>
+            </div>
+          </div>
+        </div>
+        <div class="subsection">
+          <div class="subsection-header" onclick="toggleSub(this)">
+            <span class="subsection-label">C</span>
+            <span class="subsection-name">引出论述</span>
+            <span class="sub-toggle">▼</span>
+          </div>
+          <div class="subsection-body">
+            <div class="sentence-card">
+              <button class="copy-btn" onclick="copyCard(this)">复制</button>
+              <button class="tts-btn" onclick="speakText(this, this.closest('.sentence-card').querySelector('.en-text').innerText)" title="朗读英文">🔊</button>
+              <div class="en-text">Several reasons can be cited to support this view.</div>
+              <div class="cn-text">可以列举若干理由来支持这一观点。</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="section-block open" id="s2-4">
+      <div class="section-header" onclick="toggleSection('s2-4')">
+        <span class="section-num">Para.</span>
+        <div><div class="section-title">第二段 <span class="section-title-cn">· 展开论述</span></div></div>
+        <span class="toggle-icon">▼</span>
+      </div>
+      <div class="section-body"><div class="sentences-block" id="para2-t4"></div></div>
+    </div>
+    <div class="section-block open" id="s3-4">
+      <div class="section-header" onclick="toggleSection('s3-4')">
+        <span class="section-num">Para.</span>
+        <div><div class="section-title">第三段 <span class="section-title-cn">· 总结升华</span></div></div>
+        <span class="toggle-icon">▼</span>
+      </div>
+      <div class="section-body">
+        <div class="sentences-block" id="para3-t4"></div>
+        <div class="ending-vault" id="ending-t4"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════ TYPE 6: 素材库 ══════════ -->
+  <div class="type-panel" id="type-5">
+
+    <!-- SEARCH -->
+    <div class="search-wrap">
+      <div class="search-input-wrap">
+        <input class="search-input" id="matSearch" type="text"
+          placeholder="搜索短语（中文或英文）…  e.g. 创业 / stand out"
+          oninput="searchPhrases(this.value)" autocomplete="off">
+        <span class="search-icon">🔍</span>
+      </div>
+      <div class="search-count" id="matCount"></div>
+    </div>
+
+    <div id="matContent"></div>
+    <div class="no-results" id="noResults">未找到匹配短语，请换个关键词试试。</div>
+
+  </div>
+
+</div><!-- /page-wrapper -->
+
+<script>
+// ── SHARED CONTENT ──────────────────────────────────────────
+const para2Sentences = [
+  { en: "To begin with, it is widely acknowledged that...", cn: "首先，人们普遍认为……" },
+  { en: "Studies have consistently shown that successful people prioritize doing sth in their daily schedules.", cn: "研究一再表明，成功人士会在日常日程中优先安排某事。" },
+  { en: "Moreover, it is apparent that...", cn: "此外，显而易见的是……" },
+  { en: "Without..., there would be no...", cn: "没有……，就不会有……" },
+  { en: "The last but equally important reason lies in the fact that...", cn: "最后但同样重要的原因在于……" },
+  { en: "... is / are usually associated with...", cn: "……通常与……相关联。" }
+];
+
+const para3Sentences = [
+  { en: "Based on the discussion above, it is reasonable to conclude that...", cn: "基于以上讨论，我们有理由得出结论：……" },
+  { en: "As long as we are committed to ..., we can look forward to a brighter future for...", cn: "只要我们致力于……，就可以期待……拥有更加光明的未来。" }
+];
+
+const endingData = {
+  "重申观点": ["In conclusion, ...","To conclude, ...","In summary, ...","To sum up, ...","All in all, ...","In brief, ...","From the discussion above, ...","Based on the analysis above, ...","Taking everything into account, ...","Considering all the factors mentioned above, ..."],
+  "提出希望": ["We can expect a brighter future for ...","The prospects for ... are highly promising.","... is bound to flourish in the future.","... will continue to develop in a positive direction.","A better tomorrow awaits if we take action today.","The future of ... will be bright, sustainable, and prosperous."]
+};
+
+function buildSentenceCards(sentences) {
+  return sentences.map(s => `
+    <div class="sentence-card">
+      <button class="copy-btn" onclick="copyCard(this)">复制</button>
+      <button class="tts-btn" onclick="speakText(this, this.closest('.sentence-card').querySelector('.en-text').innerText)" title="朗读英文">🔊</button>
+      <div class="en-text">${s.en}</div>
+      <div class="cn-text">${s.cn}</div>
+    </div>
+  `).join('');
+}
+
+function buildEnding() {
+  return `
+    <div class="vocab-title" style="margin-bottom:16px">结尾万能句库</div>
+    ${Object.entries(endingData).map(([cat, items]) => `
+      <div class="ending-category">
+        <div class="ending-cat-title">${cat}</div>
+        <div class="ending-chips">
+          ${items.map(item => `<span class="chip">${item}</span>`).join('')}
+        </div>
+      </div>
+    `).join('')}
+  `;
+}
+
+const p2ids = ['para2-shared','para2-t1','para2-t2','para2-t3','para2-t4'];
+const p3ids = ['para3-shared','para3-t1','para3-t2','para3-t3','para3-t4'];
+const endIds = ['ending-shared','ending-t1','ending-t2','ending-t3','ending-t4'];
+p2ids.forEach(id => { const el = document.getElementById(id); if (el) el.innerHTML = buildSentenceCards(para2Sentences); });
+p3ids.forEach(id => { const el = document.getElementById(id); if (el) el.innerHTML = buildSentenceCards(para3Sentences); });
+endIds.forEach(id => { const el = document.getElementById(id); if (el) el.innerHTML = buildEnding(); });
+
+// ── MATERIAL DATA ────────────────────────────────────────────
+const materialData = [
+  {
+    num: "一", title: "个人成长与全面发展", subtitle: "万能基础话题",
+    phrases: [
+      ["构建和谐社会", "build a harmonious society"],
+      ["实现全面发展", "achieve well-rounded development"],
+      ["最大化我们的潜能，实现个人理想抱负", "maximize our potential and fulfill personal aspirations"],
+      ["跟上快速发展的社会", "keep pace with the rapidly developing society"],
+      ["应对未来的各种挑战", "tackle various challenges in the future"],
+      ["走出象牙塔，舒适区", "step out of the ivory tower and comfort zone"],
+      ["为未来发展打下坚实基础", "lay a solid foundation for future development"],
+      ["降低创业的门槛", "lower the threshold of entrepreneurship"],
+      ["获得体面收入和巨大的成就感", "obtain decent income and a strong sense of accomplishment"],
+      ["实现自我价值，提高工作满意度", "realize self-worth and enhance job satisfaction"],
+    ]
+  },
+  {
+    num: "二", title: "学业学习与能力提升", subtitle: "校园核心话题",
+    phrases: [
+      ["取得好成绩", "attain sound academic performance"],
+      ["身心健康成长", "grow physically and mentally healthy"],
+      ["培养批判性思维，问题解决能力，独立思考", "cultivate critical thinking, problem-solving skills, and independent thinking"],
+      ["精通外语，编程，数据分析等技能", "master skills such as foreign languages, coding, and data analysis"],
+      ["精通某项技能", "be proficient in + 名词/doing"],
+      ["独立自主学习", "study independently"],
+      ["上课专心听讲、按时完成作业，考前系统温习功课", "listen attentively in class, finish assignments punctually and review lessons systematically before exams"],
+      ["构建系统的知识框架", "build a systematic knowledge framework"],
+      ["巩固基础知识", "consolidate basic knowledge"],
+      ["增强学习主动性", "enhance learning initiative"],
+      ["主动探索未知领域", "take the initiative to explore unknown fields"],
+      ["善于思考和总结", "be good at thinking and summarizing"],
+      ["拥有强大的自学能力", "possess strong self-learning ability"],
+      ["利用网络上丰富的资源自学，查阅资料", "take advantage of abundant online resources for self-study and information inquiry"],
+      ["将理论和实践结合", "integrate theory with practice"],
+      ["增强对复杂概念的理解", "deepen the understanding of complex concepts"],
+      ["将抽象的知识转化成生动的叙述和具象的场景", "transform abstract knowledge into vivid descriptions and concrete scenarios"],
+      ["利用AI完成学术作业", "leverage AI to complete academic assignments"],
+      ["提高学习与工作效率", "improve learning and work efficiency"],
+      ["点燃学习热情，鼓励进一步探索", "ignite enthusiasm for learning and inspire further exploration"],
+      ["将学习看成一件枯燥的任务", "regard learning as a boring task"],
+      ["充当学业进步的催化剂", "act as a catalyst for academic progress"],
+    ]
+  },
+  {
+    num: "三", title: "职业就业与实践发展", subtitle: "高频热点话题",
+    phrases: [
+      ["在面试中脱颖而出，进而斩获理想工作", "stand out in job interviews and consequently secure desirable jobs"],
+      ["在面试中赢得雇主的青睐", "win the favor of employers in interviews"],
+      ["参加实习、兼职及社区志愿服务", "participate in internships, part-time jobs, and community volunteer services"],
+      ["积累实践经验，增强就业竞争力", "accumulate hands-on experience and strengthen employment competitiveness"],
+      ["参加职业讲座，打磨个人简历和校友联系", "attend career lectures, polish resumes and connect with alumni"],
+      ["开启更好的工作机会", "unlock better career opportunities"],
+      ["职业晋升，涨工资", "achieve career promotion and salary growth"],
+      ["创造了前所未有的就业机会", "create unprecedented employment opportunities"],
+      ["充当职业成功的基石", "serve as a cornerstone of career success"],
+    ]
+  },
+  {
+    num: "四", title: "科技网络与信息安全", subtitle: "热点话题",
+    phrases: [
+      ["给生活带来了巨大的便利", "bring tremendous convenience to life"],
+      ["节省时间和精力", "save time and energy"],
+      ["打造绿色的网络环境", "build a green and healthy online environment"],
+      ["保护个人隐私，避免信息泄露", "protect personal privacy and prevent information leakage"],
+      ["增强反诈意识，提高辨别虚假信息的能力", "strengthen anti-fraud awareness and improve the ability to identify false information"],
+      ["通过多种途径验证信息的真实性", "verify the authenticity of information through various channels"],
+      ["阻止虚假信息的传播", "curb the spread of false information"],
+      ["保持头脑清醒和警惕", "keep a clear and alert mind"],
+    ]
+  },
+  {
+    num: "五", title: "身心健康与生活习惯", subtitle: "常规基础话题",
+    phrases: [
+      ["培养健康生活习惯", "cultivate healthy lifestyles"],
+      ["缓解压力，焦虑，沮丧", "alleviate stress, anxiety and depression"],
+      ["提高自信心", "boost self-confidence"],
+      ["增强体质和免疫力", "strengthen physical fitness and immunity"],
+      ["塑造积极，向上，乐观的心态", "foster a positive, uplifting and optimistic mindset"],
+      ["面对挫折与挑战", "face setbacks and challenges"],
+    ]
+  },
+  {
+    num: "六", title: "社交能力与处世思维", subtitle: "通用提分话题",
+    phrases: [
+      ["培养团队精神", "cultivate a sense of teamwork"],
+      ["增强沟通能力", "enhance communication skills"],
+      ["建立良好的人际关系", "establish sound interpersonal relationships"],
+      ["增进彼此的了解，信任", "enhance mutual understanding and trust"],
+      ["换位思考", "put oneself in others\u2019 shoes"],
+      ["三思而后行", "think twice before acting"],
+      ["做出明智的决定和判断", "make wise decisions and judgments"],
+      ["权衡利弊", "weigh the pros and cons"],
+      ["明确自身的优势和劣势", "clarify one\u2019s own strengths and weaknesses"],
+      ["增强应变能力", "enhance the ability to adapt to changes"],
+      ["全面分析问题", "analyze problems comprehensively"],
+      ["得出基于事实证据而不是情绪的结论", "draw conclusions based on factual evidence rather than emotions"],
+    ]
+  },
+  {
+    num: "七", title: "社会文化与生态发展", subtitle: "宏观话题",
+    phrases: [
+      ["展示传统技艺，普及科学知识", "display traditional skills and popularize scientific knowledge"],
+      ["缩小教育差距，贫富差距", "narrow the educational gap and wealth gap"],
+      ["减少温室气体排放，缓解交通堵塞", "reduce greenhouse gas emissions and ease traffic congestion"],
+      ["提供广阔的平台", "provide a vast platform"],
+      ["造成严重的经济负担", "impose a heavy economic burden"],
+    ]
+  },
+  {
+    num: "八", title: "个人素养与规划成长", subtitle: "升华类话题",
+    phrases: [
+      ["塑造学生的性格特点", "shape students\u2019 personalities"],
+      ["引导学生树立正确的三观", "guide students to establish correct outlooks on life, values and the world"],
+      ["离不开这两个因素", "be inseparable from these two factors"],
+      ["提供一种明确的方向感，产生持久的动力", "offer a clear sense of direction and generate lasting motivation"],
+      ["制定一个具体的，可量化的计划", "formulate a specific and quantifiable plan"],
+      ["将宏大的计划拆分为具体的步骤，每天坚持", "break down grand plans into specific steps and stick to them every day"],
+    ]
+  }
+];
+
+// Build material HTML
+function buildMaterial() {
+  const container = document.getElementById('matContent');
+  container.innerHTML = materialData.map((cat, ci) => `
+    <div class="mat-category open" id="mc-${ci}">
+      <div class="mat-cat-header" onclick="toggleMat('mc-${ci}')">
+        <span class="mat-cat-num">${cat.num}</span>
+        <div>
+          <div class="mat-cat-title">${cat.title}</div>
+          <div class="mat-cat-subtitle">${cat.subtitle}</div>
+        </div>
+        <span class="mat-toggle">▼</span>
+      </div>
+      <div class="mat-body">
+        ${cat.phrases.map((p, pi) => `
+          <div class="phrase-row" data-cn="${p[0]}" data-en="${p[1]}" id="pr-${ci}-${pi}">
+            <span class="phrase-cn">${p[0]}</span>
+            <span class="phrase-sep">→</span>
+            <span class="phrase-en">${p[1]}</span>
+            <button class="phrase-copy-btn" onclick="copyPhrase(this, '${p[0].replace(/'/g,"\\'")}', '${p[1].replace(/'/g,"\\'")}')">复制</button>
+            <button class="phrase-tts-btn" onclick="speakText(this, '${p[1].replace(/'/g,"\\'").replace(/`/g,'\\`')}')" title="朗读英文">🔊</button>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+  `).join('');
+}
+
+buildMaterial();
+
+function toggleMat(id) {
+  document.getElementById(id).classList.toggle('open');
+}
+
+function escapeReg(s) {
+  return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+function highlight(text, q) {
+  if (!q) return text;
+  return text.replace(new RegExp(`(${escapeReg(q)})`, 'gi'), '<mark>$1</mark>');
+}
+
+function searchPhrases(q) {
+  q = q.trim();
+  const rows = document.querySelectorAll('.phrase-row');
+  const noRes = document.getElementById('noResults');
+  const countEl = document.getElementById('matCount');
+  let found = 0;
+
+  rows.forEach(row => {
+    const cn = row.dataset.cn;
+    const en = row.dataset.en;
+    const match = !q || cn.toLowerCase().includes(q.toLowerCase()) || en.toLowerCase().includes(q.toLowerCase());
+    row.classList.toggle('hidden', !match);
+    if (match) {
+      found++;
+      row.querySelector('.phrase-cn').innerHTML = highlight(cn, q);
+      row.querySelector('.phrase-en').innerHTML = highlight(en, q);
+      row.classList.toggle('highlight', !!q);
+    } else {
+      row.querySelector('.phrase-cn').textContent = cn;
+      row.querySelector('.phrase-en').textContent = en;
+      row.classList.remove('highlight');
+    }
+  });
+
+  // Expand/collapse categories based on visible children
+  document.querySelectorAll('.mat-category').forEach(cat => {
+    const visibleRows = cat.querySelectorAll('.phrase-row:not(.hidden)');
+    if (q) {
+      cat.classList.toggle('open', visibleRows.length > 0);
+    }
+  });
+
+  noRes.style.display = (found === 0 && q) ? 'block' : 'none';
+  if (q) {
+    countEl.innerHTML = `找到 <span>${found}</span> 条匹配短语`;
+  } else {
+    countEl.innerHTML = `共收录 <span>${rows.length}</span> 条高频短语`;
+  }
+}
+
+// Initialize count
+searchPhrases('');
+
+function copyPhrase(btn, cn, en) {
+  navigator.clipboard.writeText(cn + '\n' + en).then(() => {
+    btn.textContent = '已复制';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = '复制'; btn.classList.remove('copied'); }, 1500);
+  });
+}
+
+// ── TEMPLATE INTERACTIONS ──────────────────────────────────
+function switchType(idx, btn) {
+  document.querySelectorAll('.type-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('type-' + idx).classList.add('active');
+  btn.classList.add('active');
+  // Reset search when switching away from material tab
+  if (idx !== 5) {
+    document.getElementById('matSearch').value = '';
+    searchPhrases('');
+  } else {
+    // focus search when entering material tab
+    setTimeout(() => document.getElementById('matSearch').focus(), 100);
+  }
+}
+
+function toggleSection(id) {
+  document.getElementById(id).classList.toggle('open');
+}
+
+function toggleSub(header) {
+  header.closest('.subsection').classList.toggle('open');
+}
+
+function copyCard(btn) {
+  const card = btn.closest('.sentence-card');
+  const en = card.querySelector('.en-text').innerText;
+  const cn = card.querySelector('.cn-text').innerText;
+  navigator.clipboard.writeText(en + '\n' + cn).then(() => {
+    btn.textContent = '已复制';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = '复制'; btn.classList.remove('copied'); }, 1500);
+  });
+}
+
+// ── TEXT-TO-SPEECH ENGINE ────────────────────────────────────
+let currentTtsBtn = null;
+let currentUtterance = null;
+
+function speakText(btn, text) {
+  if (!window.speechSynthesis) {
+    alert('您的浏览器不支持语音朗读功能，建议使用 Chrome 或 Edge。');
+    return;
+  }
+
+  // Clean up template placeholders for cleaner reading
+  const cleanText = text
+    .replace(/（[^）]*）/g, '')   // remove Chinese parenthetical hints
+    .replace(/\([^)]*\)/g, '')    // remove English parenthetical hints
+    .replace(/\.\.\./g, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+
+  // If already speaking this button, stop
+  if (currentTtsBtn === btn && speechSynthesis.speaking) {
+    speechSynthesis.cancel();
+    btn.classList.remove('speaking');
+    currentTtsBtn = null;
+    return;
+  }
+
+  // Stop any previous speech
+  speechSynthesis.cancel();
+  if (currentTtsBtn) currentTtsBtn.classList.remove('speaking');
+
+  const utter = new SpeechSynthesisUtterance(cleanText);
+  utter.lang = 'en-US';
+  utter.rate = 0.88;
+  utter.pitch = 1;
+  utter.volume = 1;
+
+  // Try to pick a natural English voice
+  const voices = speechSynthesis.getVoices();
+  const preferred = ['Google US English', 'Samantha', 'Alex', 'Karen', 'Daniel'];
+  const enVoices = voices.filter(v => v.lang.startsWith('en'));
+  const pick = preferred.map(n => enVoices.find(v => v.name.includes(n))).find(Boolean)
+             || enVoices.find(v => !v.localService)
+             || enVoices[0];
+  if (pick) utter.voice = pick;
+
+  btn.classList.add('speaking');
+  currentTtsBtn = btn;
+  currentUtterance = utter;
+
+  utter.onend = () => {
+    btn.classList.remove('speaking');
+    currentTtsBtn = null;
+  };
+  utter.onerror = () => {
+    btn.classList.remove('speaking');
+    currentTtsBtn = null;
+  };
+
+  speechSynthesis.speak(utter);
+}
+
+// Voices load async in some browsers
+window.speechSynthesis && speechSynthesis.addEventListener &&
+  speechSynthesis.addEventListener('voiceschanged', () => {});
+
+document.querySelectorAll('.subsection').forEach((sub, i) => {
+  if (i === 0) sub.classList.add('open');
+});
+
+</script>
+</body>
+</html>
